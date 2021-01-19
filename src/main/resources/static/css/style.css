@@ -1,0 +1,48 @@
+*{
+	margin: 3px;
+}
+
+body{
+	padding: 10px;
+	background-color: red;
+}
+
+h1{
+	text-align: center;
+	text-shadow: 2px 3px 4px gray;
+}
+
+tr th{
+	background-color: #539afb;
+	color: white;
+}
+
+td, th{
+	padding: 20px;
+}
+
+table, tr{
+	border: 1px dotted #539afb;
+}
+
+table{
+	margin: 0 auto;
+}
+
+img{
+	display:block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 70%;
+  	height: 30%
+}
+
+a{
+	text-decoration: none;
+	transition-duration: 0.6s;
+}
+
+a:hover{
+	font-weight: bold;
+	transition-duration: 0.6s;
+}
