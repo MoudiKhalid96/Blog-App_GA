@@ -6,18 +6,13 @@
 		<label>Article Title </label> <input type="text" name="title" value="${article.title}" class="form-control">
 	</div>
 	<div class="form-group">
-		<label>Article Description </label> <input type="text" name="description" value="${article.description}">
+		<label>Article Description </label> <input type="text" name="description" value="${article.description}" class="form-control">
 	</div>
 	<div class="form-group">
 		<label>Author</label>
-		<select name="author">
+		<select name="authors" class="form-control" multiple="multiple">
 			<c:forEach items="${authors}" var="author">
 				<option value="${author.id}"> ${author.name} 
-				
-					<!-- if the FK of the article matches the PK in author, then make it selected(attribute in HTML) -->
-					<c:if test="${article.author.id == author.id}">
-						selected = "selected"
-					</c:if>
 					${author.name}
 				</option>
 			</c:forEach>	
@@ -25,5 +20,7 @@
 	</div>
 	
 	<input type="hidden" name="id" value="${article.id}">
+	
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>

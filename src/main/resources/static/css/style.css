@@ -19,6 +19,7 @@ tr th{
 
 td, th{
 	padding: 20px;
+	text-align: center;
 }
 
 table, tr{

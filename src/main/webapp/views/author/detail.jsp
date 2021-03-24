@@ -6,8 +6,7 @@
 		<th>Gender</th>
 		<th>Date of Birth</th>
 		<th>Email Address</th>		
-		<th>Title</th>		
-		<th>Description</th>		
+		<th>Articles</th>		
 	</tr>
 	<tr>
 		<td>${author.name}</td>
@@ -16,23 +15,16 @@
 		<td>${author.emailAddress}</td>
 		
 
-
+<!-- this comment is for the 1:m relationship  -->
 <!-- author.getArticles() is working because of the bi-directional relationship [one to many and many to one that we've mentioned in the model classes] -->
 
 <td>
 <c:forEach items="${author.getArticles()}" var="article">
 
-		${article.title}<br>
-	<hr>
+		<ul>
+			<li><a href="${appName}article/detail?id=${article.id}">${article.title}</a></li>
+		</ul>
 </c:forEach>
-</td>
-<td>
-<c:forEach items="${author.getArticles()}" var="article">
-
-		${article.description}<br>
-		<hr>	
-</c:forEach>
-
 </td>
 </tr>
 </table>

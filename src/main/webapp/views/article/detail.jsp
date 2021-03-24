@@ -1,5 +1,5 @@
 <jsp:include page="../shared/_layout.jsp" />
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <table>
@@ -11,7 +11,11 @@
 	<tr>
 		<td>${article.title}</td>
 		<td>${article.description}</td>
-		<td>${article.author.name}</td>
+		<td>
+			<c:forEach items="${article.getAuthors()}" var="author">
+				- <a href="${appName}author/detail?id=${author.id}">${author.name}</a><br>
+			</c:forEach>
+		</td>
 	</tr>
 </table>
 

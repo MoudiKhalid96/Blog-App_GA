@@ -2,6 +2,7 @@ package com.ga.blogapp.model;
 
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import javax.persistence.*; // I can do this instead of all these: table, column, ...
 
@@ -22,10 +23,18 @@ public class Article {
 	
 	private String description;
 	
-	// here it's many(articles) to one (author), but to author it's one (author) to many (articles)
-	@ManyToOne
-	@JoinColumn(name = "FK_AuthorId") // create a join between articles and author..
-	private Author author;
+	/* BEFORE: it was many (articles) to one (author), but to author it was one (author) to many (articles)
+	 * @ManyToOne
+	 * @JoinColumn(name = "FK_AuthorId")
+	 * private Author author;	
+	 * */
+	
+	@ManyToMany
+	//				     new table name, constraints
+	@JoinTable(name = "author_articles",
+			   joinColumns= {@JoinColumn(name = "article_id")},
+			   inverseJoinColumns = {@JoinColumn(name = "author_id")}) // create a join table (new table) between articles and author..
+	private Set<Author> authors; // one rule: inverse column goes to owner..
 	
 	@Column(name="createdAt", nullable = false, updatable = false)
 	@CreationTimestamp
@@ -59,12 +68,12 @@ public class Article {
 		this.description = description;
 	}
 
-	public Author getAuthor() {
-		return author;
+	public Set<Author> getAuthors() {
+		return authors;
 	}
 
-	public void setAuthor(Author author) {
-		this.author = author;
+	public void setAuthors(Set<Author> authors) {
+		this.authors = authors;
 	}
 
 	public LocalDateTime getCreateAt() {

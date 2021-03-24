@@ -9,12 +9,13 @@
 		<label>Article Description </label> <input type="text" name="description" class="form-control">
 	</div >
 	<div class="form-group">
-		<label>Author</label>
-		<select name="author">
+		<label>Authors</label>
+		<select name="authors" class="form-control" multiple="multiple">
 			<c:forEach items="${authors}" var="author">
 				<option value="${author.id}"> ${author.name} </option>
 			</c:forEach>	
 		</select>
 	</div>
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -22,7 +22,7 @@
 		<label>Article </label> <input type="text" name="article">
 	</div> -->
 
-
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	<button type="submit" class="btn btn-primary">Submit</button>
 
 </form>

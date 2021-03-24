@@ -1,6 +1,7 @@
 package com.ga.blogapp.model;
 
 import java.time.LocalDateTime;
+import java.util.Iterator;
 
 import javax.persistence.*;
 
@@ -9,7 +10,17 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name="user")
-public class User {
+public class User implements Iterable<User> {
+	
+//	public User(String newPassword) {
+//		this.password = newPassword;// this const. is to test from class UserController Test
+//	}
+//	
+//	public User(String emailAddress, String password) {
+//		this.emailAddress = emailAddress;
+//		this.password = password;
+//	}
+	
 	@Id
 	@GeneratedValue
 	private int id;
@@ -96,6 +107,12 @@ public class User {
 
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
+	}
+
+	@Override
+	public Iterator<User> iterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

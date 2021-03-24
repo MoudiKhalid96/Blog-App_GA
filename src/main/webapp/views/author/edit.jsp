@@ -20,7 +20,7 @@
 	
 	<input name="id" type="hidden" value="${author.id}">
 	
-
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	<button type="submit" class="btn btn-primary">Submit</button>
 
 </form>

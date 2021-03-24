@@ -1,7 +1,7 @@
-# <b>Blog App</b>
+# <b>Blog-App</b>
 
 ## INTRODUCTION
-This project is required to complete the JDI course from Misk Academy and General Assembly by working in live sessions to get practice of some covered materials taken so far for now.<br>It's a `Blog App` that authors and article can be added, edited and deleteed from the website. actions determined by the <b>role</b> of the user, it's either admin or normal user.
+This project is required to complete the JDI course from Misk Academy and General Assembly by working in live sessions to get practice of some covered materials taken so far for now.<br>It's a `Blog App` that authors and article can be added, edited and deleted from the web-site. actions determined by the <b>role</b> of the user, it's either admin or regular user.
 
 
 ## TECHNOLOGIES
@@ -9,12 +9,12 @@ This project is required to complete the JDI course from Misk Academy and Genera
 * CSS 3
 * JavaScript 1.8.5 
 * JQuery 3.5.1
-* Java Springboot
+* Java Spring-boot
 
 
 
 ## FEATURES
-* Create an account in <b>Blog App</b>
+* Create an account
 * View authors 
 * View authors personal details
 * View authors articles

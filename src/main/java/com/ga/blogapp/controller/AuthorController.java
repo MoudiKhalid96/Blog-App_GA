@@ -48,9 +48,9 @@ public class AuthorController {
 		hc.setAppName(mv, env);
 		
 		
-		if(!uc.isUserLoggedIn()) {
-			mv.setViewName("home/index");
-		}
+//		if(!uc.isUserLoggedIn()) {
+//			mv.setViewName("home/index");
+//		}
 		
 		return mv;
 	}
@@ -117,13 +117,13 @@ public class AuthorController {
 		
 		HttpSession session = request.getSession();
 				
-		if(!uc.isUserLoggedIn()){
-			return "redirect:home/index";
-			
-		}else if (session.getAttribute("userRole").equals("user")){
-			return "redirect:/author/index";
-			
-		}
+//		if(!uc.isUserLoggedIn()){
+//			return "redirect:home/index";
+//			
+//		}else if (session.getAttribute("userRole").equals("user")){
+//			return "redirect:/author/index";
+//			
+//		}
 		
 		dao.deleteById(id);
 		return "redirect:/author/index";

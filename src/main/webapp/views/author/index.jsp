@@ -1,4 +1,5 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../shared/_layout.jsp" />
 
 <table>
@@ -8,9 +9,9 @@
 		<th>Email Address</th>
 		<th>Gender</th>
 		<th>Date of Birth</th>
-<%if(session.getAttribute("user") != null){ %>			
-		<th>Actions</th>
-<%} %>		  			
+		<security:authorize access="isAuthenticated()">
+			<th>Actions</th>
+		</security:authorize>		  			
 	</tr>
 
 	<c:forEach items="${authors}" var="author">
@@ -19,11 +20,16 @@
 			<td>${author.emailAddress}</td>
 			<td>${author.gender}</td>
 			<td>${author.dateofBirth}</td>
-<%if(session.getAttribute("user") != null){ %>			
-			<td><a href="${appName}author/edit?id=${author.id}">Edit</a>
-<%if(session.getAttribute("userRole").equals("admin")){ %>			
-		    | <a href="${appName}author/delete?id=${author.id}">Delete</a></td>
-<%}} %>		  	
+			
+			<security:authorize access="isAuthenticated()">
+				<td>
+					<a href="${appName}author/edit?id=${author.id}">Edit</a>
+	
+					<security:authorize access="hasRole('ADMIN')">
+			    		| <a href="${appName}author/delete?id=${author.id}">Delete</a>
+					</security:authorize>
+				</td>
+			</security:authorize>
 		</tr>
 	</c:forEach>
 </table>

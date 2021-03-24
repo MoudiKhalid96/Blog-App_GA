@@ -24,8 +24,20 @@ public class UserController {
 	
 	@Autowired
 	//takes the current request
-	//here is any attr. required by browser
+	//here is any attribute required by browser
 	private HttpServletRequest request;
+	
+	
+	// this method is for testing .. tests are going with Mock and Stub 
+//	@GetMapping("/hello")
+//	public String hello(){
+//		if(isUserLoggedInStub())
+//		return "Hi";
+//		
+//		return "bye";
+//	}
+	
+	
 	
 	//to load the registration form
 	@GetMapping("user/registration")
@@ -45,7 +57,8 @@ public class UserController {
 	public ModelAndView registration(User user) {
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("user/login");
+//		mv.setViewName("user/login");
+		mv.setViewName("home/index");
 		
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
@@ -67,6 +80,7 @@ public class UserController {
 		
 		dao.save(user);
 		mv.addObject("message", "User Registered Successfully");
+		
 		return mv;
 	}
 	
@@ -81,70 +95,63 @@ public class UserController {
 		
 		return mv;
 	}
-	
-	//to post the login form
-	@PostMapping("user/login")
-	public String login(User user) {
-		BCryptPasswordEncoder bCrypt =new BCryptPasswordEncoder(); 
-		
-		String email = user.getEmailAddress();
-		String password = user.getPassword();
-		
-		User matchedUser = dao.findByEmailAddress(email);
-		HttpSession session = request.getSession();
+//	
+//	//to post the login form
+//	@PostMapping("user/login")
+//	public String login(User user) {
+//		BCryptPasswordEncoder bCrypt =new BCryptPasswordEncoder(); 
+//		
+//		String email = user.getEmailAddress();
+//		String password = user.getPassword();
+//		
+//		User matchedUser = dao.findByEmailAddress(email);
+//		HttpSession session = request.getSession();
+//
+//		
+//		if(matchedUser != null) {
+//			if(bCrypt.matches(password, matchedUser.getPassword())) {
+//				
+//				//Session code goes here
+////								  attr name, attr				
+//				session.setAttribute("user", matchedUser);
+//				
+//				//to get user role in this session, because we will be use it later...
+//				session.setAttribute("userRole", matchedUser.getUserRole());
+//				
+//				session.setAttribute("message", "You're logged in sccessfully");
+//				
+//				return "redirect:/";
+//			}
+//		}
+//		
+//		session.setAttribute("message", "Email or Password is Incorrect");
+//		return "redirect:/user/login";
+//	}
+//	
+//	
+//	//to log the user out
+//	@GetMapping("user/logout")
+//	public String logout() {
+//		
+//		HttpSession session = request.getSession();
+//		session.invalidate();// remove attributes /destroy information all session in this application
+//		//session.removeAttribute("user"); // remove attributes one by one .. so for good practise is to user invalidate method
+//		
+//		
+//		return "redirect:/user/login";
+//	}
+//	
+//	
+//	
+//	  //to check if user is logged in or not 
+//  public boolean isUserLoggedIn() {
+//	  
+//	  HttpSession session = request.getSession();
+//	  
+//	  if(session.getAttribute("user") == null) return false;
+//	  
+//	 return true; 
+//   }
 
-		
-		if(matchedUser != null) {
-			if(bCrypt.matches(password, matchedUser.getPassword())) {
-				
-				//Session code goes here
-//								  attr name, attr				
-				session.setAttribute("user", matchedUser);
-				
-				//to get user role in this session, because we will be use it later...
-				session.setAttribute("userRole", matchedUser.getUserRole());
-				
-				session.setAttribute("message", "You're logged in sccessfully");
-				
-				return "redirect:/";
-			}
-		}
-		
-		session.setAttribute("message", "Email or Password is Incorrect");
-		return "redirect:/user/login";
-	}
-	
-	
-	//to log the user out
-	@GetMapping("user/logout")
-	public String logout() {
-		
-		HttpSession session = request.getSession();
-		session.invalidate();// remove attributes /destroy information all session in this application
-//		session.removeAttribute("user"); // remove attributes one by one .. so for good practise is to user invalidate method
-		
-		
-		return "redirect:/user/login";
-	}
-	
-	
-	//to check if user is logged in or not
-	public boolean isUserLoggedIn() {
-		
-		HttpSession session = request.getSession();
-		
-		if(session.getAttribute("user") == null)
-			return false;
-		
-		return true;
-	}
-		
-	//Routes needed here
-	/* 
-	
-	//load user profile
-	@GetMapping("user/profile")
-	
-	
-	*/
+
 }

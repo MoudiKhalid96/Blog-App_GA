@@ -47,9 +47,9 @@ public class ArticleController {
 		var it = authorDao.findAll();
 		mv.addObject("authors", it);
 		
-		if(!uc.isUserLoggedIn()) {
-			mv.setViewName("home/index");
-		}
+//		if(!uc.isUserLoggedIn()) {
+//			mv.setViewName("home/index");
+//		}
 		
 		return mv;
 	}
@@ -84,7 +84,6 @@ public class ArticleController {
 	// HTTP GET REQUEST - Article Detail
 	@GetMapping("/article/detail")
 	public ModelAndView articleDetails(@RequestParam int id) {
-		System.out.println(id);
 		
 		Article article = dao.findById(id);
 		
@@ -114,9 +113,9 @@ public class ArticleController {
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
 		
-		if(!uc.isUserLoggedIn()) {
-			mv.setViewName("home/index");
-		}
+//		if(!uc.isUserLoggedIn()) {
+//			mv.setViewName("home/index");
+//		}
 		
 		return mv;
 	}
@@ -125,15 +124,15 @@ public class ArticleController {
 	@GetMapping("/article/delete")
 	public String deleteArticle(@RequestParam int id) {
 		
-		HttpSession session = request.getSession();
+//		HttpSession session = request.getSession();
 		
-		if(!uc.isUserLoggedIn()) {
-			return "redirect:home/index";
-			
-		}else if (session.getAttribute("userRole").equals("user")){
-			return "redirect:/author/index";
-			
-		}
+//		if(!uc.isUserLoggedIn()) {
+//			return "redirect:home/index";
+//			
+//		}else if (session.getAttribute("userRole").equals("user")){
+//			return "redirect:/author/index";
+//			
+//		}
 		
 		dao.deleteById(id);
 		return "redirect:/article/index";
