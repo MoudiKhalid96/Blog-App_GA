@@ -28,22 +28,27 @@ This project is required to complete the JDI course from Misk Academy and Genera
 
 ## WIREFRAME
 ### Home
+This is the interface of the <b>`Blog App`</b> any person visiting this webite can see authors and articles only. <br>
 ![Home](/image/Home_login_blogapp.png) <br>
 
-This is the interface of the <b>`Blog App`</b> any person visiting this webite can see authors and articles only
 
-### Author Page
+### Authors Index Page
+This page is appearing for any one visiting the website and click on authors. Same goes for articles page. <br>
 ![authors](/image/Author_index_blogapp.png) <br>
 
-The above page is appearing for any one visiting the website and click on authors. Same goes for articles page
 
 ### Article Page
+The details will show when clicking on article (Ex: article1)<br>
 ![articles](/image/Article_index_blogapp.png) <br>
 
-This will show when clicking on article (Ex: article1)
 
 ### Article Details Page
 ![articles](/image/Article_detail_blogapp.png) <br>
+
+
+### Article Index Page
+![article actions](/image/Actions_article_blogapp.png) <br>
+
 
 when clicking on <b>create new account</b> this window will show up
 
@@ -55,17 +60,6 @@ After creating account, user have to login.. so the page will redirect him to lo
 ### Login Page
 ![home after login](/image/login_blogapp.png) <br>
 
-When user login successfully, he can see the articles and authors AND add some and edit.. BUT, deleting goes only for the admin. So, the delete buttton will not appear for normal users.
-
-### Article Index Page
-![article actions](/image/Actions_article_blogapp.png) <br>
-
-### Author Index Page
-![author actions](/image/Actions_author_blogapp.png) <br>
+When user login successfully, user can see the articles and authors AND add some and edit.. BUT, deleting goes only for the admin. So, the delete buttton will not appear for regular users.
 
 And finally the user can click on <b>logout<b>.
-
-
-
-
-
