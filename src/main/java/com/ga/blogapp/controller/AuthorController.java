@@ -47,11 +47,6 @@ public class AuthorController {
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
 		
-		
-//		if(!uc.isUserLoggedIn()) {
-//			mv.setViewName("home/index");
-//		}
-		
 		return mv;
 	}
 	
@@ -114,17 +109,7 @@ public class AuthorController {
 	// HTTP GET REQUEST - Author Delete
 	@GetMapping("/author/delete")
 	public String deleteAuthor(@RequestParam int id) {
-		
-		HttpSession session = request.getSession();
 				
-//		if(!uc.isUserLoggedIn()){
-//			return "redirect:home/index";
-//			
-//		}else if (session.getAttribute("userRole").equals("user")){
-//			return "redirect:/author/index";
-//			
-//		}
-		
 		dao.deleteById(id);
 		return "redirect:/author/index";
 	}
