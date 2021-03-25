@@ -8,27 +8,23 @@
 	
 	<div class="form-group">
 		<label>Last Name </label>
-		<input type="text" name="lastName" class="form-control">
+		<input type="text" name="lastName" class="form-control" required>
 	</div>
 	
 	<div class="form-group">
 		<label>E-mail Address</label>
-		<input type="email" name="emailAddress" class="form-control">
+		<input type="email" name="emailAddress" class="form-control" required>
 	</div>
 	
 	<div class="form-group" >
 		<label>Password</label>
-		<input type="password" name="password" class="form-control">
+		<input type="password" name="password" class="form-control" required>
 	</div>
 	
 	
-	<div class="form-group">
-		<label>Select Role</label>
-		<select name="userRole" class="form-control">
-			<option value="ROLE_ADMIN">Admin</option>
-			<option value="ROLE_USER">User</option>
-		</select>
-	</div>
 	
-<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	<button type="submit" class="btn btn-primary">Submit</button>
+	<input type="hidden" name="userRole" value="ROLE_USER" />		
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		
+	<button type="submit" class="btn btn-primary">Submit</button>
 </form>

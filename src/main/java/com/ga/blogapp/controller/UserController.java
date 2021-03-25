@@ -44,8 +44,7 @@ public class UserController {
 	public ModelAndView registration(User user) {
 		
 		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("user/login");
-		mv.setViewName("home/index");
+		mv.setViewName("user/login");
 		
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
@@ -106,7 +105,7 @@ public class UserController {
 			if(bCrypt.matches(password, matchedUser.getPassword())) {
 				
 				//Session code goes here
-//								  attr name, attr				
+				//				  attr name, attr				
 				session.setAttribute("user", matchedUser);
 				
 				//to get user role in this session, because we will be use it later...
@@ -131,21 +130,7 @@ public class UserController {
 		session.invalidate();// remove attributes /destroy information all session in this application
 		//session.removeAttribute("user"); // remove attributes one by one .. so for good practise is to user invalidate method
 		
-		
 		return "redirect:/user/login";
 	}
 	
-	
-	
-	  //to check if user is logged in or not 
-  public boolean isUserLoggedIn() {
-	  
-	  HttpSession session = request.getSession();
-	  
-	  if(session.getAttribute("user") == null) return false;
-	  
-	 return true; 
-   }
-
-
 }
