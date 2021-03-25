@@ -1,7 +1,7 @@
 <jsp:include page="../shared/_layout.jsp" />
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<form action="${appName}article/add" method="post" >
+<form action="${appName}article/add" method="post" id="bg-color">
 	<div class="form-group">
 		<label>Article Title </label> <input type="text" name="title" value="${article.title}" class="form-control">
 	</div>

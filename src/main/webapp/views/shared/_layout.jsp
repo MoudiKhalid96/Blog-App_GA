@@ -14,9 +14,11 @@
 </head>
 <body>
 
-<h1>${Welcome}</h1>
+<h1>${blogapp}</h1>
 
 <security:authorize access="isAuthenticated()">
+	<security:authentication property="principal.username" var="username"/>
+
 	<a href="${appName}">Home</a>
 	<a href="${appName}author/index">Author</a>
 	<a href="${appName}article/index">Article</a>
@@ -24,11 +26,14 @@
 	<a href="${appName}article/add">Add Article</a>
 	
 	<div style="text-align:right; float:right;">
-		<b>Hi: <security:authentication property="principal.firstName" /> <security:authentication property="principal.lastName" /></b>
-		<a href="${appName}logout">logout</a>
-	</div>
+		<b>
+			Hi <security:authentication property="principal.firstName" />
+		</b>
+		<a href="${appName}user/profile?emailAddress=${username}">Profile</a>
+		<a href="${appName}logout">Logout</a>
+		</div>
 </security:authorize>
-
+		
 <security:authorize access="!isAuthenticated()">
 	<a href="${appName}">Home</a>
 	<a href="${appName}author/index">Author</a>

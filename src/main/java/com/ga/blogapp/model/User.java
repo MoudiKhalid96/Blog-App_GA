@@ -34,6 +34,7 @@ public class User implements Iterable<User> {
 	private LocalDateTime updateAt;
 
 	private String userRole;
+	private String picture;
 	
 	
 	public int getId() {
@@ -105,6 +106,13 @@ public class User implements Iterable<User> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
+	public String getPicture() {
+		return picture;
+	}
+
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+
 }

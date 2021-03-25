@@ -27,7 +27,7 @@ public class Author {
 	 * Before it was one (author) to many (articles)
 	 * */
 	
-	@ManyToMany(mappedBy = "authors") //because we want our application M:N
+	@ManyToMany(mappedBy = "authors", cascade = CascadeType.REMOVE) //because we want our application M:N
 	private Set<Article> articles; // I want to have multiple-articles
 	
 	@Column(name="createdAt", nullable = false, updatable = false)

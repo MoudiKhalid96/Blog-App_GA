@@ -47,3 +47,50 @@ a:hover{
 	font-weight: bold;
 	transition-duration: 0.6s;
 }
+
+.article-details{
+	width: 70%;
+	height: auto;
+	margin: 10px auto;
+	background-color: #fcfcfc;
+	padding: 20px;
+	border-radius: 15px;
+}
+
+.article-details>h2{
+	text-align: center;
+}
+
+.article-details>p{
+	margin-top: 50px;
+}
+
+#bg-color{
+	background-color: #fcfcfc;
+	padding: 20px;
+	width: 60%;
+	height: auto;
+	margin: 10px auto;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+
+#bg-color>button{
+	margin-top: 20px;
+}
+
+.form-group>label{
+	padding: 10px;
+}
+
+.picture{
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+}
+
+.grid{
+	display: grid;
+ 	grid-template-columns: auto auto;
+}

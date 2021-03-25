@@ -50,9 +50,9 @@ public class UserController {
 		hc.setAppName(mv, env);
 		
 		//to check if the user is already registered or not
-		var it = dao.findAll(); // the one form DB and the `user` is the one we get from user
+		var users = dao.findAll(); // the one form DB and the `user` is the one we get from user
 		
-		for(User dbUser: it) {
+		for(User dbUser: users) {
 			if(dbUser.getEmailAddress().equals(user.getEmailAddress())) {
 				mv.addObject("message", "User Already Exists");
 				return mv;
@@ -66,14 +66,7 @@ public class UserController {
 		
 		dao.save(user);
 		mv.addObject("message", "User Registered Successfully");
-
-		/////////////////////////
-		//to get user attributes from session		
-		HttpSession session = request.getSession();
 		
-		session.setAttribute("user", user);
-		session.setAttribute("userRole", user.getUserRole());
-				
 		return mv;
 	}
 	
@@ -88,7 +81,7 @@ public class UserController {
 		
 		return mv;
 	}
-//	
+	
 	//to post the login form
 	@PostMapping("user/login")
 	public String login(User user) {
@@ -119,6 +112,24 @@ public class UserController {
 		
 		session.setAttribute("message", "Email or Password is Incorrect");
 		return "redirect:/user/login";
+	}
+	
+	@GetMapping("user/profile")
+	public ModelAndView profile(@RequestParam String emailAddress) {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("user/profile");
+		
+		User user = dao.findByEmailAddress(emailAddress);
+		
+		mv.addObject("user", user);
+		
+		
+		HomeController hc = new HomeController();
+		hc.setAppName(mv, env);
+		
+		
+		return mv;
 	}
 	
 	

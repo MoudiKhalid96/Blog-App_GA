@@ -1,5 +1,8 @@
 package com.ga.blogapp.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -15,6 +18,9 @@ public class HomeController {
 	@Autowired 
 	private Environment env;
 	
+	@Autowired
+	private HttpServletRequest request;
+	
 	// HTTP GET REQUEST - Root Route
 	@GetMapping("/")
 	public ModelAndView home() {
@@ -27,14 +33,12 @@ public class HomeController {
 	}
 	
 	// Setting an App name (Other common properties)
-	public ModelAndView setAppName(ModelAndView mv, @Autowired Environment env) {
+	public ModelAndView setAppName(ModelAndView mv, Environment env) {
 		String appName = env.getProperty("app.name");
 		mv.addObject("appName", appName);
-		mv.addObject("Welcome", "Blog App");
+		mv.addObject("blogapp", "Blog App");
 
 		return mv;
 	}
-	
-	
 	
 }

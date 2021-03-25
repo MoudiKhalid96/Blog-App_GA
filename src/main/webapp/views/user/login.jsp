@@ -1,9 +1,6 @@
 <jsp:include page="../shared/_layout.jsp" />
 
-
-<b style="color: red;">${message}</b>
-
-<form action="${appName}login" method="post" class="form-control">
+<form action="${appName}login" method="post" class="form-control" id="bg-color">
 
 	<div class="form-group">
 		<label>E-mail Address</label>

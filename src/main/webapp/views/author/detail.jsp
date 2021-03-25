@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <jsp:include page="../shared/_layout.jsp" />
 <table>
 	<tr>
@@ -7,12 +8,14 @@
 		<th>Date of Birth</th>
 		<th>Email Address</th>		
 		<th>Articles</th>		
+		<th>Actions</th>		
 	</tr>
 	<tr>
 		<td>${author.name}</td>
 		<td>${author.gender}</td>
 		<td>${author.dateofBirth}</td>
 		<td>${author.emailAddress}</td>
+
 		
 
 <!-- this comment is for the 1:m relationship  -->
@@ -26,6 +29,13 @@
 		</ul>
 </c:forEach>
 </td>
+<security:authorize access="isAuthenticated()">
+
+	<td>
+		<a href="${appName}author/edit?id=${author.id}">Edit</a> | 
+		<a href="${appName}author/delete?id=${author.id}">Delete</a>
+	</td>
+	</security:authorize>
 </tr>
 </table>
 

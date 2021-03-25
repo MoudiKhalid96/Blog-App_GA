@@ -1,6 +1,6 @@
 <jsp:include page="../shared/_layout.jsp" />
 
-<form action="${appName}author/add" method="post" class="form-control">
+<form action="${appName}author/add" method="post" class="form-control" id="bg-color">
 
 	<div class="form-group">
 		<label>Author's Name </label> <input type="text" name="name" class="form-control">

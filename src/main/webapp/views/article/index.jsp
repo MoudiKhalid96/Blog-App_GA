@@ -4,28 +4,13 @@
 <link rel="stylesheet" href="css/style.css">
 
 
-<table>
+<table style="width: 50%; text-align: center;">
 	<tr>
-		<th>Article Title</th>
-		<th>Article Description</th>
-		<security:authorize access="isAuthenticated()">
-			<th>Actions</th>
-		</security:authorize>	
+		<th>Article Title</th>	
 	</tr>
 	<c:forEach items="${articles}" var="article">
 		<tr>
-			<td><a href="${appName}article/detail?id=${article.id}">${article.title}</a></td>
-			<td>${article.description}</td>
-			
-			<security:authorize access="isAuthenticated()">
-				<td>
-					<a href="${appName}article/edit?id=${article.id}">Edit</a>
-					
-					<security:authorize access="hasRole('ADMIN')">
-			    		| <a href="${appName}article/delete?id=${article.id}">Delete</a>
-					</security:authorize>
-				</td>			
-			</security:authorize>			
+			<td><a href="${appName}article/detail?id=${article.id}">${article.title}</a></td>	
 		</tr>
 	</c:forEach>
 </table>

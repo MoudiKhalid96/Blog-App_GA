@@ -30,9 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{ // apply secur
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
 	}
-		
-	
-	
 	
 	
 	//Override Authorization (privilege) Methods
@@ -40,11 +37,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{ // apply secur
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		//csrf is an attack
-		//.csrf().disable()// whenever there is toker not compatable displae it (when user write script in inputs .. we protect out app) `this is not GP .. the good is to do it using html`
-		// I included this line in all pages that have post method `<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />`
+		//.csrf().disable()// whenever there is token not compatible disable it (when user write script in inputs .. we protect out app) `this is not GP .. the good is to do it using html`
+		// Included this line in all pages that have post method `<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />` to protect from csrf attack
 		.authorizeRequests()
-		.antMatchers("/author/add"   , "/article/add").hasAnyRole("ADMIN", "USER")// it should be capital to define the role (common thing in programming)
-		.antMatchers("/author/edit"  , "/article/edit").hasAnyRole("ADMIN", "USER")
+		.antMatchers("/author/add", "/article/add").hasAnyRole("ADMIN", "USER")// it should be capital to define the role (common thing in programming)
+		.antMatchers("/author/edit", "/article/edit").hasAnyRole("ADMIN", "USER")
 		.antMatchers("/author/delete", "/article/delete").hasAnyRole("ADMIN")
 		
 		.and().formLogin()
