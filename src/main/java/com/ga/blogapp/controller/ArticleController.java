@@ -118,6 +118,5 @@ public class ArticleController {
 		dao.deleteById(id);
 		return "redirect:/article/index";
 	}
-	
-	
+
 }
