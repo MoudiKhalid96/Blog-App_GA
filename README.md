@@ -15,7 +15,14 @@ This project is required to complete the JDI course from Misk Academy and Genera
 * JQuery 3.5.1
 * Java Spring-boot
 
-
+## USERS
+In general, user can create an account and login. There're 2 types od users:
+* Normal
+  * add and edit, author
+  * add and edit article
+* Admin 
+  * add, edit, and delete author
+  * add, edit, and delete article
 
 ## FEATURES
 * Create an account
@@ -24,6 +31,7 @@ This project is required to complete the JDI course from Misk Academy and Genera
 * View authors articles
 * View articles 
 * View articles details 
+
 
 
 ## WIREFRAME
@@ -37,6 +45,10 @@ This page is appearing for any one visiting the website and click on authors. Sa
 ![authors](/image/Author_index_blogapp.png) <br>
 
 
+### Article Index Page With Actions
+This will show for user who is logged-in (delete is only for admin)
+![authors actions](/image/Actions_author_blogapp.png) <br>
+
 ### Article Page
 The details will show when clicking on article (Ex: article1)<br>
 ![articles](/image/Article_index_blogapp.png) <br>
@@ -46,7 +58,8 @@ The details will show when clicking on article (Ex: article1)<br>
 ![articles](/image/Article_detail_blogapp.png) <br>
 
 
-### Article Index Page
+### Article Index Page With Actions
+This will show for user who is logged-in (delete is only for admin)
 ![article actions](/image/Actions_article_blogapp.png) <br>
 
 
