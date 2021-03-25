@@ -35,6 +35,9 @@ public class ArticleController {
 	@Autowired //I want to use this object but, by not creating an instance of it.. 
 	private AuthorDao authorDao;
 	
+	@Autowired
+	private ArticleDao dao;
+	
 	// HTTP GET REQUEST - Article Add
 	@GetMapping("/article/add")
 	public ModelAndView addArticle() {
@@ -47,15 +50,8 @@ public class ArticleController {
 		var it = authorDao.findAll();
 		mv.addObject("authors", it);
 		
-//		if(!uc.isUserLoggedIn()) {
-//			mv.setViewName("home/index");
-//		}
-		
 		return mv;
 	}
-	
-	@Autowired
-	private ArticleDao dao;
 	
 	// HTTP POST REQUEST - Article Add
 	@PostMapping("/article/add")
@@ -94,8 +90,7 @@ public class ArticleController {
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
 		
-		return mv;
-		
+		return mv;	
 	}
 
 	// HTTP GET REQUEST - Article Edit
@@ -112,27 +107,13 @@ public class ArticleController {
 		
 		HomeController hc = new HomeController();
 		hc.setAppName(mv, env);
-		
-//		if(!uc.isUserLoggedIn()) {
-//			mv.setViewName("home/index");
-//		}
-		
+
 		return mv;
 	}
 	
 	// HTTP GET REQUEST - Article Delete
 	@GetMapping("/article/delete")
 	public String deleteArticle(@RequestParam int id) {
-		
-//		HttpSession session = request.getSession();
-		
-//		if(!uc.isUserLoggedIn()) {
-//			return "redirect:home/index";
-//			
-//		}else if (session.getAttribute("userRole").equals("user")){
-//			return "redirect:/author/index";
-//			
-//		}
 		
 		dao.deleteById(id);
 		return "redirect:/article/index";

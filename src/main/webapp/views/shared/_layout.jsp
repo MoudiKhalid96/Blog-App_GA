@@ -30,7 +30,7 @@
 <a href="${appName}article/add">Add Article</a>
 
 <div style="text-align:right; float:right;">
-<b>Hi: <security:authentication property="principal.firstName" /></b>
+<b>Hi: <security:authentication property="principal.firstName" /> <security:authentication property="principal.lastName" /></b>
 <%-- <b><security:authentication property="principal.authorities" /></b>  --%>
 <a href="${appName}logout">logout</a>
 </div>
