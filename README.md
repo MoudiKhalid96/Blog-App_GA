@@ -16,7 +16,8 @@ This project is required to complete the JDI course from Misk Academy and Genera
 * Java Spring-boot
 
 ## USERS
-In general, user can create an account and login. There're 2 types od users:
+In general, user can create an view authors, author details, articles, article details, create new account, and login.<br>
+There're 2 types od users:
 * Normal
   * add and edit, author
   * add and edit article
