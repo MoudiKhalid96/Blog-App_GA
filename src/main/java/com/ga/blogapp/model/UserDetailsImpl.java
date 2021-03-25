@@ -14,8 +14,8 @@ public class UserDetailsImpl implements UserDetails{
 	//Attributes
 	private String username;
 	private String password;
-//	private String firstName;
-//	private String lastName;
+	private String firstName;
+	private String lastName;
 	private List<GrantedAuthority> authorities;
 	
 	//Constructors:
@@ -24,12 +24,11 @@ public class UserDetailsImpl implements UserDetails{
 		//this will map me with the authentication for security
 		this.username = user.getEmailAddress();
 		this.password = user.getPassword();
-//		this.firstName = user.getFirstName();
-//		this.lastName = user.getLastName();
-		this.authorities = Arrays
-								.stream(user.getUserRole().split(",")) // make it as an array and if it's > 1 .. split it with comma and assign that to an array
-								.map(SimpleGrantedAuthority::new) // this is a new way to write an object
-								.collect(Collectors.toList());
+		this.firstName = user.getFirstName();
+		this.lastName = user.getLastName();
+		this.authorities = Arrays.stream(user.getUserRole().split(",")) // make it as an array and if it's > 1 .. split it with comma and assign that to an array
+								 .map(SimpleGrantedAuthority::new) // this is a new way to write an object
+								 .collect(Collectors.toList());
 	}
 	
 	
@@ -49,6 +48,14 @@ public class UserDetailsImpl implements UserDetails{
 	@Override
 	public String getUsername() {
 		return this.username;
+	}
+	
+	public String getFirstName() {
+		return this.firstName;
+	}
+
+	public String getLastName() {
+		return this.lastName;
 	}
 
 	@Override

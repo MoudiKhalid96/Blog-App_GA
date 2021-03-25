@@ -12,15 +12,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Table(name="user")
 public class User implements Iterable<User> {
 	
-//	public User(String newPassword) {
-//		this.password = newPassword;// this const. is to test from class UserController Test
-//	}
-//	
-//	public User(String emailAddress, String password) {
-//		this.emailAddress = emailAddress;
-//		this.password = password;
-//	}
-	
 	@Id
 	@GeneratedValue
 	private int id;
